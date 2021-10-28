@@ -312,7 +312,7 @@ else:
   ytick_size = 18
 
   # omit plot if one specific department is chosen
-  if filter_dept == "All depts":
+  if filter_dept != "All depts":
     pass
   else:
     tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
@@ -329,7 +329,7 @@ else:
     st.pyplot(fig)
 
   # omit plot if one specific commodity is chosen
-  if filter_comm == "All commodities":
+  if filter_comm != "All commodities":
     pass
   else:
     tmp = sf.groupby("commodity_title").price.sum().sort_values(ascending=False)[:top_n]
@@ -347,7 +347,7 @@ else:
     st.pyplot(fig)
 
   # omit plot if one specific vendor is chosen
-  if filter_vend == "All vendors":
+  if filter_vend =!= "All vendors":
     pass
   else:
     tmp = sf.groupby("vendor_name").price.sum().sort_values(ascending=False)[:top_n]
