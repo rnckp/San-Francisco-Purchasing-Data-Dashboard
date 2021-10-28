@@ -193,6 +193,7 @@ else:
   st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
   st.subheader(f"Data overview for purchases from {time_frame.lower()}")
   st.markdown(f"##### *First available date in data:* {start_date} | *Last available date:* {end_date}")
+  st.markdown("---")
   st.markdown(f"##### 📆 {days_till_fiscal_end} days left till end of fiscal year.")
   st.markdown("---")
 
