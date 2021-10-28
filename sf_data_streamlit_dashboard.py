@@ -206,8 +206,6 @@ else:
   price_median = sf.price.median()
   highest_sale = sf.price.max()
 
-
-
   purchase_count_delta = int(purchase_count / days - 1_090) * days
   dept_count_delta = None
   vendor_count_delta = None 
@@ -282,6 +280,7 @@ else:
   fig, ax = plt.subplots(figsize=(16,6))
   sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
   plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold')
+  plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(rotation=0)
   plt.ylabel("Sales volume in USD")
