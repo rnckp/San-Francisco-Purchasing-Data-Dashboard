@@ -281,7 +281,7 @@ else:
   # st.markdown("### Sales volume per calendar week")
   fig, ax = plt.subplots(figsize=(16,6))
   sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
-  plt.suptitle(f"Sales volume per calendar week")
+  plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold')
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(rotation=0)
   plt.ylabel("Sales volume in USD")
