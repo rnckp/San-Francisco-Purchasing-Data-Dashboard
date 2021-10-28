@@ -276,7 +276,7 @@ else:
   fig, ax = plt.subplots(figsize=(16,6))
   sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
   plt.title(f"Sales volume per calendar week", 
-            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+            size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(rotation=0)
   plt.ylabel("Sales volume in USD")
@@ -288,7 +288,7 @@ else:
   fig, ax = plt.subplots(figsize=(16,6))
   sf.groupby(sf.po_dt.dt.weekday).price.sum().plot.bar(ax=ax)
   plt.title(f"Sales volume per weekday", 
-            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+            size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(ticks=range(0, 7), labels=list(calendar.day_abbr), rotation=0)
   plt.ylabel("Sales volume in USD")
@@ -312,7 +312,7 @@ else:
   fig, ax = plt.subplots(figsize=figsize)
   sns.barplot(data=tmp, y="department_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
   plt.title(f"Top {top_n} departments by sales volume", 
-            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+            size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
   plt.xlabel("Sum of sales, in USD", size=8)
   plt.yticks(size=ytick_size)
   plt.ylabel("")
@@ -325,7 +325,7 @@ else:
   fig, ax = plt.subplots(figsize=figsize)
   sns.barplot(data=tmp, y="commodity_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
   plt.title(f"Top {top_n} commodities by sales volume", 
-            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+            size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
   plt.xlabel("Sum of sales, in USD", size=8)
   labels = [f"{x.capitalize()[:25]}..." for x in tmp.commodity_title.values]
   plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
@@ -338,7 +338,7 @@ else:
   fig, ax = plt.subplots(figsize=figsize)
   sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
   plt.title(f"Top {top_n} vendors by sales volume", 
-            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+            size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
   labels = [f"{x.capitalize()}..." for x in tmp.vendor_name.values]
   plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
   plt.ylabel("")
