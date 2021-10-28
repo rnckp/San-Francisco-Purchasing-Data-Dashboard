@@ -280,7 +280,7 @@ else:
   fig, ax = plt.subplots(figsize=(16,6))
   sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
   mid = (fig.subplotpars.right + fig.subplotpars.left)/2
-  plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold', x=mid)
+  plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold')
   plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(rotation=0)
