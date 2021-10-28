@@ -339,7 +339,7 @@ else:
   sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
   plt.title(f"Top {top_n} vendors by sales volume", 
             size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
-  labels = [f"{x.capitalize()}..." for x in tmp.vendor_name.values]
+  labels = [x for x in tmp.vendor_name.values]
   plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
   plt.ylabel("")
   plt.xlabel("Sum of sales, in USD", size=8)
