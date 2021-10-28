@@ -281,7 +281,7 @@ else:
 
   sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
   
-  plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold', x=mid, y=1.05)
+  plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold', x=mid, y=1.5)
   plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(rotation=0)
