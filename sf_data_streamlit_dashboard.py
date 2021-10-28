@@ -347,7 +347,7 @@ else:
     st.pyplot(fig)
 
   # omit plot if one specific vendor is chosen
-  if filter_vend =!= "All vendors":
+  if filter_vend != "All vendors":
     pass
   else:
     tmp = sf.groupby("vendor_name").price.sum().sort_values(ascending=False)[:top_n]
