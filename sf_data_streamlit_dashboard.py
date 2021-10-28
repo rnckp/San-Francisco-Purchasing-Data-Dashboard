@@ -303,6 +303,7 @@ else:
 
   top_n = 10
   figsize = (16, 6)
+  ytick_size = 14
 
 
   tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
@@ -313,7 +314,7 @@ else:
   plt.title(f"Top {top_n} departments by sales volume", 
             size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
   plt.xlabel("Sum of sales, in USD", size=8)
-  plt.yticks(size=20)
+  plt.yticks(size=ytick_size)
   plt.ylabel("")
   plt.tight_layout()
   st.pyplot(fig)
@@ -327,8 +328,7 @@ else:
             size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
   plt.xlabel("Sum of sales, in USD", size=8)
   labels = [f"{x.capitalize()[:25]}..." for x in tmp.commodity_title.values]
-  plt.yticks(ticks=range(tmp.shape[0]), labels=labels)
-  plt.yticks(size=14)
+  plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
   plt.ylabel("")
   plt.tight_layout()
   st.pyplot(fig)
@@ -339,7 +339,8 @@ else:
   sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
   plt.title(f"Top {top_n} vendors by sales volume", 
             size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-  plt.yticks(size=20)
+  labels = [f"{x.capitalize()[:25]}..." for x in tmp.vendor_name.values]
+  plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
   plt.ylabel("")
   plt.xlabel("Sum of sales, in USD", size=8)
   plt.tight_layout()
