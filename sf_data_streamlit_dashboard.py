@@ -272,29 +272,29 @@ else:
   # ---------------------------------------------------------------------------------- #
 
 
-# st.markdown("### Sales volume per calendar week")
-fig, ax = plt.subplots(figsize=(16,6))
-sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
-plt.title(f"Sales volume per calendar week", 
-          size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-plt.ticklabel_format(axis="y", style="plain")
-plt.xticks(rotation=0)
-plt.ylabel("Sales volume in USD")
-plt.xlabel("Calendar week")
-plt.tight_layout()
-st.pyplot(fig)
+  # st.markdown("### Sales volume per calendar week")
+  fig, ax = plt.subplots(figsize=(16,6))
+  sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
+  plt.title(f"Sales volume per calendar week", 
+            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+  plt.ticklabel_format(axis="y", style="plain")
+  plt.xticks(rotation=0)
+  plt.ylabel("Sales volume in USD")
+  plt.xlabel("Calendar week")
+  plt.tight_layout()
+  st.pyplot(fig)
 
-# st.markdown("### Sales volume per weekday")
-fig, ax = plt.subplots(figsize=(16,6))
-sf.groupby(sf.po_dt.dt.weekday).price.sum().plot.bar(ax=ax)
-plt.title(f"Sales volume per weekday", 
-          size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-plt.ticklabel_format(axis="y", style="plain")
-plt.xticks(ticks=range(0, 7), labels=list(calendar.day_abbr), rotation=0)
-plt.ylabel("Sales volume in USD")
-plt.xlabel("Weekday")
-plt.tight_layout()
-st.pyplot(fig)
+  # st.markdown("### Sales volume per weekday")
+  fig, ax = plt.subplots(figsize=(16,6))
+  sf.groupby(sf.po_dt.dt.weekday).price.sum().plot.bar(ax=ax)
+  plt.title(f"Sales volume per weekday", 
+            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+  plt.ticklabel_format(axis="y", style="plain")
+  plt.xticks(ticks=range(0, 7), labels=list(calendar.day_abbr), rotation=0)
+  plt.ylabel("Sales volume in USD")
+  plt.xlabel("Weekday")
+  plt.tight_layout()
+  st.pyplot(fig)
 
   st.markdown(f"---")
 
