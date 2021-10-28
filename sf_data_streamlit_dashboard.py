@@ -185,6 +185,8 @@ else:
   diff = sf.po_dt.max() - sf.po_dt.min()
   days = diff.days + 1
 
+  st.write(days)
+
   now = datetime.now()
   end_of_fiscal = pd.to_datetime(f"{now.year + 1}-06-30")
   days_till_fiscal_end = end_of_fiscal - now
