@@ -191,15 +191,9 @@ else:
   days_till_fiscal_end = days_till_fiscal_end.days
 
   st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
-  
-  columns = st.columns(2)
-  with columns[0]:
-    st.subheader(f"Data overview for purchases from {time_frame.lower()}")
-    st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
-  with columns[1]:
-    st.subheader("📆 Days left till end of fiscal year")
-    st.metric("", days_till_fiscal_end, 30)
-
+  st.subheader(f"Data overview for purchases from {time_frame.lower()}")
+  st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
+  st.subheader("📆 {days_till_fiscal_end} days left till end of fiscal year.")
   st.markdown("---")
 
   purchase_count = sf.shape[0]
