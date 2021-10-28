@@ -326,6 +326,8 @@ else:
   plt.title(f"Top {top_n} commodities by sales volume", 
             size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
   plt.xlabel("Sum of sales, in USD", size=8)
+  labels = [f"{x[:25]}..." for x in tmp.commodity_title.values]
+  plt.yticks(ticks=range(tmp.shape[]), labels=labels)
   plt.yticks(size=14)
   plt.ylabel("")
   plt.tight_layout()
