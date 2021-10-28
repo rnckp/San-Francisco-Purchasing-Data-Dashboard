@@ -225,10 +225,10 @@ else:
                   "👩🏻‍💼 Vendor count 👨🏻‍💼", 
                   "🛍 Unique goods purchased",
 
-                  "🔎 Total sales volume",
+                  "🔎 Total purchase volume",
                   "Average order volume",
                   "Median order volume",
-                  "🔥 Highest sale",
+                  "🔥 Most expensive purchase",
                   ]
 
   metric_values = [purchase_count, 
