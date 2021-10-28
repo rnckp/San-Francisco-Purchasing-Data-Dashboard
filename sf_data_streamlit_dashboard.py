@@ -303,7 +303,7 @@ else:
 
   top_n = 10
   figsize = (16, 6)
-  ytick_size = 14
+  ytick_size = 18
 
 
   tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
