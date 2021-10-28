@@ -190,11 +190,13 @@ else:
   days_till_fiscal_end = end_of_fiscal - now
   days_till_fiscal_end = days_till_fiscal_end.days
 
-
-  st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
-  st.subheader(f"Data overview for purchases from {time_frame.lower()}")
-  st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}\n")
-  st.markdown(f"##### Days left till end of fiscal year: {days_till_fiscal_end}\n---")
+  columns = st.columns(2)
+  with columns[0]:
+    st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
+    st.subheader(f"Data overview for purchases from {time_frame.lower()}")
+    st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}\n")
+  with columns[1]:
+    st.markdown(f"##### Days left till end of fiscal year: {days_till_fiscal_end}\n---")
 
   purchase_count = sf.shape[0]
   dept_count = sf.department.nunique()
