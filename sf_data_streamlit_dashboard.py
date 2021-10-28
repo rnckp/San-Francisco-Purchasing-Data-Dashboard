@@ -198,7 +198,7 @@ else:
     st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
   with columns[1]:
     st.markdown("\n")
-    st.metric("Days left till end of fiscal year", days_till_fiscal_end, 30)
+    st.metric("## Days left till end of fiscal year", days_till_fiscal_end, 30)
 
   st.markdown("---")
 
