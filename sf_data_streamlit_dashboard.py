@@ -193,7 +193,7 @@ else:
   st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
   st.subheader(f"Data overview for purchases from {time_frame.lower()}")
   st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
-  st.subheader(f"📆 {days_till_fiscal_end} days left till end of fiscal year.")
+  st.markdown(f"##### 📆 {days_till_fiscal_end} days left till end of fiscal year.")
   st.markdown("---")
 
   purchase_count = sf.shape[0]
