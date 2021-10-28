@@ -197,10 +197,10 @@ else:
     st.subheader(f"Data overview for purchases from {time_frame.lower()}")
     st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
   with columns[1]:
-    st.markdown(f"##### Days left till end of fiscal year: {days_till_fiscal_end}")
+    st.metric("Days left till end of fiscal year", days_till_fiscal_end, 30)
 
   st.markdown("---")
-  
+
   purchase_count = sf.shape[0]
   dept_count = sf.department.nunique()
   vendor_count = sf.vendor_name.nunique()
