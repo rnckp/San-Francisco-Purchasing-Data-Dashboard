@@ -295,7 +295,7 @@ else:
 
   sf.groupby(sf.po_dt.dt.weekday).price.sum().plot.bar(ax=ax)
 
-  plt.suptitle(f"Sales volume per weekday", size=TITLE_SIZE, fontweight='bold', x=mid)
+  plt.suptitle(f"Sales volume per weekday", size=TITLE_SIZE, fontweight='bold', x=mid, y=1)
   plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
   plt.xticks(ticks=range(0, 7), labels=list(calendar.day_abbr), rotation=0)
@@ -325,7 +325,7 @@ else:
     
     sns.barplot(data=tmp, y="department_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
 
-    plt.suptitle(f"Top {top_n} departments by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.suptitle(f"Top {top_n} departments by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid, y=1)
     plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
     plt.xlabel("Sum of sales, in USD", size=8)
     plt.yticks(size=ytick_size)
@@ -345,7 +345,7 @@ else:
     
     sns.barplot(data=tmp, y="commodity_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
     
-    plt.suptitle(f"Top {top_n} commodities by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.suptitle(f"Top {top_n} commodities by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid, y=1)
     plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
     
     plt.xlabel("Sum of sales, in USD", size=8)
@@ -367,7 +367,7 @@ else:
 
     sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
     
-    plt.suptitle(f"Top {top_n} vendors by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.suptitle(f"Top {top_n} vendors by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid, y=1)
     plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
     
     labels = [x for x in tmp.vendor_name.values]
