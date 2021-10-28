@@ -192,11 +192,11 @@ else:
 
   st.markdown("# 🌉 San Francisco Purchasing Data Dashboard")
   
-  columns = st.columns(2)
+  columns = st.columns(3)
   with columns[0]:
     st.subheader(f"Data overview for purchases from {time_frame.lower()}")
     st.markdown(f"##### First available date: {start_date} | Last available date: {end_date}")
-  with columns[1]:
+  with columns[2]:
     st.metric("Days left till end of fiscal year", days_till_fiscal_end, 30)
 
   st.markdown("---")
