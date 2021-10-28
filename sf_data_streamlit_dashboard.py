@@ -276,10 +276,11 @@ else:
   # ---------------------------------------------------------------------------------- #
 
 
-  # st.markdown("### Sales volume per calendar week")
   fig, ax = plt.subplots(figsize=(16,6))
-  sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
   mid = (fig.subplotpars.right + fig.subplotpars.left)/2
+
+  sf.groupby(sf.po_dt.dt.isocalendar().week).price.sum().plot.bar(ax=ax)
+  
   plt.suptitle(f"Sales volume per calendar week", size=TITLE_SIZE, fontweight='bold', x=mid)
   plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
@@ -289,10 +290,11 @@ else:
   plt.tight_layout()
   st.pyplot(fig)
 
-  # st.markdown("### Sales volume per weekday")
   fig, ax = plt.subplots(figsize=(16,6))
   mid = (fig.subplotpars.right + fig.subplotpars.left)/2
+
   sf.groupby(sf.po_dt.dt.weekday).price.sum().plot.bar(ax=ax)
+
   plt.suptitle(f"Sales volume per weekday", size=TITLE_SIZE, fontweight='bold', x=mid)
   plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
   plt.ticklabel_format(axis="y", style="plain")
@@ -311,23 +313,26 @@ else:
   figsize = (16, 6)
   ytick_size = 18
 
+
   # omit plot if one specific department is chosen
   if filter_dept != "All depts":
     pass
   else:
     tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
     tmp = pd.DataFrame(tmp).reset_index()
-    # st.markdown(f"### Top {top_n} departments by sales volume")
     fig, ax = plt.subplots(figsize=figsize)
     mid = (fig.subplotpars.right + fig.subplotpars.left)/2
+    
     sns.barplot(data=tmp, y="department_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} departments by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
+
+    plt.suptitle(f"Top {top_n} departments by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
     plt.xlabel("Sum of sales, in USD", size=8)
     plt.yticks(size=ytick_size)
     plt.ylabel("")
     plt.tight_layout()
     st.pyplot(fig)
+
 
   # omit plot if one specific commodity is chosen
   if filter_comm != "All commodities":
@@ -335,17 +340,21 @@ else:
   else:
     tmp = sf.groupby("commodity_title").price.sum().sort_values(ascending=False)[:top_n]
     tmp = pd.DataFrame(tmp).reset_index()
-    # st.markdown(f"### Top {top_n} commodities by sales volume")
     fig, ax = plt.subplots(figsize=figsize)
+    mid = (fig.subplotpars.right + fig.subplotpars.left)/2
+    
     sns.barplot(data=tmp, y="commodity_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} commodities by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
+    
+    plt.suptitle(f"Top {top_n} commodities by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
+    
     plt.xlabel("Sum of sales, in USD", size=8)
     labels = [f"{x.capitalize()[:25]}..." for x in tmp.commodity_title.values]
     plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
     plt.ylabel("")
     plt.tight_layout()
     st.pyplot(fig)
+
 
   # omit plot if one specific vendor is chosen
   if filter_vend != "All vendors":
@@ -354,9 +363,13 @@ else:
     tmp = sf.groupby("vendor_name").price.sum().sort_values(ascending=False)[:top_n]
     tmp = pd.DataFrame(tmp).reset_index()
     fig, ax = plt.subplots(figsize=figsize)
+    mid = (fig.subplotpars.right + fig.subplotpars.left)/2
+
     sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} vendors by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, fontweight='bold')
+    
+    plt.suptitle(f"Top {top_n} vendors by sales volume", size=TITLE_SIZE, fontweight='bold', x=mid)
+    plt.title(f"{time_frame} | {filter_dept} | {filter_comm} | {filter_vend}")
+    
     labels = [x for x in tmp.vendor_name.values]
     plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
     plt.ylabel("")
