@@ -330,7 +330,7 @@ else:
     plt.xlabel("Sum of sales, in USD", size=8)
     plt.yticks(size=ytick_size)
     plt.ylabel("")
-    plt.tight_layout()
+    # plt.tight_layout()
     st.pyplot(fig)
 
 
@@ -352,7 +352,7 @@ else:
     labels = [f"{x.capitalize()[:25]}..." for x in tmp.commodity_title.values]
     plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
     plt.ylabel("")
-    plt.tight_layout()
+    # plt.tight_layout()
     st.pyplot(fig)
 
 
@@ -374,7 +374,7 @@ else:
     plt.yticks(ticks=range(tmp.shape[0]), labels=labels, size=ytick_size)
     plt.ylabel("")
     plt.xlabel("Sum of sales, in USD", size=8)
-    plt.tight_layout()
+    # plt.tight_layout()
     st.pyplot(fig)
 
   st.markdown(f"---")
