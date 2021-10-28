@@ -304,48 +304,44 @@ else:
   top_n = 10
   figsize = (16, 6)
 
-  columns = st.columns(3)
 
-  with columns[0]:
-    tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
-    tmp = pd.DataFrame(tmp).reset_index()
-    # st.markdown(f"### Top {top_n} departments by sales volume")
-    fig, ax = plt.subplots(figsize=figsize)
-    sns.barplot(data=tmp, y="department_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} departments by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-    plt.xlabel("Sum of sales, in USD", size=8)
-    plt.yticks(size=20)
-    plt.ylabel("")
-    plt.tight_layout()
-    st.pyplot(fig)
+  tmp = sf.groupby("department_title").price.sum().sort_values(ascending=False)[:top_n]
+  tmp = pd.DataFrame(tmp).reset_index()
+  # st.markdown(f"### Top {top_n} departments by sales volume")
+  fig, ax = plt.subplots(figsize=figsize)
+  sns.barplot(data=tmp, y="department_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
+  plt.title(f"Top {top_n} departments by sales volume", 
+            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+  plt.xlabel("Sum of sales, in USD", size=8)
+  plt.yticks(size=20)
+  plt.ylabel("")
+  plt.tight_layout()
+  st.pyplot(fig)
 
-  with columns[1]:
-    tmp = sf.groupby("commodity_title").price.sum().sort_values(ascending=False)[:top_n]
-    tmp = pd.DataFrame(tmp).reset_index()
-    # st.markdown(f"### Top {top_n} commodities by sales volume")
-    fig, ax = plt.subplots(figsize=figsize)
-    sns.barplot(data=tmp, y="commodity_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} commodities by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-    plt.xlabel("Sum of sales, in USD", size=8)
-    plt.yticks(size=14)
-    plt.ylabel("")
-    plt.tight_layout()
-    st.pyplot(fig)
+  tmp = sf.groupby("commodity_title").price.sum().sort_values(ascending=False)[:top_n]
+  tmp = pd.DataFrame(tmp).reset_index()
+  # st.markdown(f"### Top {top_n} commodities by sales volume")
+  fig, ax = plt.subplots(figsize=figsize)
+  sns.barplot(data=tmp, y="commodity_title", x="price", ax=ax, color=DEFAULT_CMAP[0])
+  plt.title(f"Top {top_n} commodities by sales volume", 
+            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+  plt.xlabel("Sum of sales, in USD", size=8)
+  plt.yticks(size=14)
+  plt.ylabel("")
+  plt.tight_layout()
+  st.pyplot(fig)
 
-  with columns[2]:
-    tmp = sf.groupby("vendor_name").price.sum().sort_values(ascending=False)[:top_n]
-    tmp = pd.DataFrame(tmp).reset_index()
-    fig, ax = plt.subplots(figsize=figsize)
-    sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
-    plt.title(f"Top {top_n} vendors by sales volume", 
-              size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
-    plt.yticks(size=20)
-    plt.ylabel("")
-    plt.xlabel("Sum of sales, in USD", size=8)
-    plt.tight_layout()
-    st.pyplot(fig)
+  tmp = sf.groupby("vendor_name").price.sum().sort_values(ascending=False)[:top_n]
+  tmp = pd.DataFrame(tmp).reset_index()
+  fig, ax = plt.subplots(figsize=figsize)
+  sns.barplot(data=tmp, y="vendor_name", x="price", ax=ax, color=DEFAULT_CMAP[0])
+  plt.title(f"Top {top_n} vendors by sales volume", 
+            size=TITLE_SIZE, pad=TITLE_PADDING, loc='left', fontweight='bold')
+  plt.yticks(size=20)
+  plt.ylabel("")
+  plt.xlabel("Sum of sales, in USD", size=8)
+  plt.tight_layout()
+  st.pyplot(fig)
 
   st.markdown(f"---")
 
