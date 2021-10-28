@@ -1,7 +1,0 @@
-name: sf_streamlit
-dependencies:
-  - numpy
-  - pandas
-  - matplotlib
-  - seaborn
-  - calendar
